@@ -117,39 +117,38 @@ const Filters = (props) => {
     }
 
     return (
-        <div>
-            <div className="filters">
-                <h3>Filters:</h3>
-                <span>Title: 
-                    <select value={titleSortOption} onChange={(e) => handleSort(e)}>
+        <div className="filters">
+            <div className="filter-categories">
+                <div className="filter-label">Title:
+                    <select className="filter-select" value={titleSortOption} onChange={(e) => handleSort(e)}>
                         <option>-</option>
                         <option value="titleAsc">ASC</option>
                         <option value="titleDsc">DSC</option>
                     </select>
-                </span>
-                <span>Author:
-                    <select value={authorSortOption} onChange={handleSort}>
+                </div>
+                <div className="filter-label">Author:
+                    <select className="filter-select" value={authorSortOption} onChange={handleSort}>
                         <option>-</option>
                         <option value="AuthorAsc">ASC</option>
                         <option value="AuthorDsc">DSC</option>
                     </select>
-                </span>
-                <span>Year:
-                    <select value={yearSortOption} onChange={handleSort}>
+                </div>
+                <div className="filter-label">Year:
+                    <select className="filter-select" value={yearSortOption} onChange={handleSort}>
                         <option>-</option>
                         <option value="YearAsc">ASC</option>
                         <option value="YearDsc">DSC</option>
                     </select>
-                </span>
-                <span>ISBN:
-                    <select value={isbnSortOption} onChange={handleSort}>
+                </div>
+                <div className="filter-label">ISBN:
+                    <select className="filter-select" value={isbnSortOption} onChange={handleSort}>
                         <option>-</option>
                         <option value="IsbnAsc">ASC</option>
                         <option value="IsbnDsc">DSC</option>
                     </select>
-                </span>
+                </div>
             </div>
-            <div>
+            {/* <div>
                 <form onSubmit={handleSearch}>
                     <label>Search: 
                         <input 
@@ -161,7 +160,7 @@ const Filters = (props) => {
                         <input type="submit" value="Search"></input>
                     </label>
                 </form>
-            </div>
+            </div> */}
         </div>
     )
 }
