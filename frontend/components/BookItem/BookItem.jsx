@@ -1,7 +1,6 @@
 import React from 'react';
-import BookList from '../BookList/BookList';
 
-const BookItem = ({book}) => {
+const BookItem = ( {book} ) => {
     return (
         <div className="book-item">
             <div className="book-item-left-side">
