@@ -1,0 +1,17 @@
+.top-container {
+    background-color: blue;
+    width: vw(100);
+    height: vh(100);
+    display: flex;
+    flex-direction: column;
+    .page-header {
+        width: 50vw;
+        align-self: center;
+        display: inline-block;
+        font-size: 3rem;
+        padding: 1em;
+        text-align: center;
+        vertical-align: middle
+    }
+}
+
