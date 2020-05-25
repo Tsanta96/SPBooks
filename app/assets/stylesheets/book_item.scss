@@ -1,0 +1,54 @@
+.book-item {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+    font-family: 'Ropa Sans', sans-serif;
+    @media only screen and (min-device-width: 415px) {
+        flex-direction: row;
+        margin-bottom: 1.5vw;
+    }
+
+    .book-title {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 0.5vw;
+        color: #0279b4;
+        @media only screen and (min-device-width: 415px) {
+            font-size: 2rem;
+        }
+    }
+
+    .book-author {
+        font-size: 3rem;
+        margin-bottom: 0.3vw;
+        @media only screen and (min-device-width: 415px) {
+            font-size: 1.2rem;
+        }
+    }
+
+    .book-item-right-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .book-year {
+        font-size: 2rem;
+        margin-bottom: 0.5vw;
+        @media only screen and (min-device-width: 415px) {
+            font-size: 1.2rem;
+            text-align: end;
+        }
+    }
+
+    .book-isbn {
+        font-size: 2rem;
+        text-align: end;
+        @media only screen and (min-device-width: 415px) {
+            font-size: 1rem;
+        }
+    }
+}

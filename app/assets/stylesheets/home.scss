@@ -18,7 +18,8 @@
             font-family: 'Russo One', sans-serif;
             padding: 2vw;
             text-align: center;
-            color: #0279b4;
+            // color: #0279b4;
+            color: #283a66;
             border-bottom: 3px solid #283a66;
             @media only screen and (min-device-width: 415px) {
                 font-size: 3rem;
@@ -32,7 +33,7 @@
             background-color: lightblue;
 
             .showFilters-button {
-                background-color: lightblue;
+                background-color: #4da2cf;
                 padding: 1vw 0;
                 display: flex;
                 justify-content: space-around;

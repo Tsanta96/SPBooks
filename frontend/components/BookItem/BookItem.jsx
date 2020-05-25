@@ -1,12 +1,17 @@
 import React from 'react';
+import BookList from '../BookList/BookList';
 
 const BookItem = ({book}) => {
     return (
-        <div>
-            <h1>{book.title}</h1>
-            <p>{book.author}</p>
-            <p>{book.year}</p>
-            <p>{book.isbn}</p>
+        <div className="book-item">
+            <div className="book-item-left-side">
+                <h1 className="book-title">{book.title}</h1>
+                <p className="book-author">{book.author}</p>
+            </div>
+            <div className="book-item-right-side">
+                <p className="book-year">{book.year}</p>
+                <p className="book-isbn">{book.isbn ? "Isbn: " + book.isbn : "Isbn: N/A"}</p>
+            </div>
         </div>
     )
 }
