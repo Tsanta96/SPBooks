@@ -1,0 +1,45 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: lightgray;
+    width: 74vw;
+    height: 40vw;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-family: 'Ropa Sans', sans-serif;
+    @media only screen and (min-device-width: 415px) {
+        height: 3vw;
+        padding: 2vw 0;
+    }
+
+    .filter-categories {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media only screen and (min-device-width: 415px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+
+    .filter-label {
+        display: flex;
+        justify-content: baseline;
+        font-size: 4rem;
+        margin: 2vw 0 0 5vw;
+        align-content: center;
+        @media only screen and (min-device-width: 415px) {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .filter-select {
+            margin-left: 1vw;
+            font-size: 3rem;
+            @media only screen and (min-device-width: 415px) {
+                font-size: 1rem;
+            }
+        }
+    }
+}

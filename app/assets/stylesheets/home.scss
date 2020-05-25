@@ -1,17 +1,56 @@
 .top-container {
-    background-color: blue;
+    // background-color: blue;
     width: vw(100);
     height: vh(100);
     display: flex;
     flex-direction: column;
-    .page-header {
-        width: 50vw;
+
+    .page-header-and-filters-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
         align-self: center;
-        display: inline-block;
-        font-size: 3rem;
-        padding: 1em;
-        text-align: center;
-        vertical-align: middle
+
+        .page-header {
+            background-color: white;
+            width: 70vw;
+            font-size: 5rem;
+            font-family: 'Russo One', sans-serif;
+            padding: 2vw;
+            text-align: center;
+            // color: #0279b4;
+            color: #283a66;
+            border-bottom: 3px solid #283a66;
+            @media only screen and (min-device-width: 415px) {
+                font-size: 3rem;
+            }
+        }
+
+        .filters-container {
+            flex-direction: row;
+            width: 74vw;
+            align-self: center;
+            background-color: lightblue;
+
+            .showFilters-button {
+                background-color: #4da2cf;
+                padding: 1vw 0;
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                font-size: 3rem;
+                text-align: center;
+                font-family: 'Ropa Sans', sans-serif;
+                @media only screen and (min-device-width: 415px) {
+                    font-size: 1.5rem;
+                }
+
+                &:hover {
+                    background-color: rgb(69, 163, 194);
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 

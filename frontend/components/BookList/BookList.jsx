@@ -3,11 +3,13 @@ import BookItem from '../BookItem/BookItem';
 
 const BookList = ({ books }) => {
     return (
-        <ul>
-            {books.map((book, idx) => (
-                <BookItem key={idx} book={book} />
-            ))}
-        </ul>
+        <div className="book-list">
+            <ul>
+                {books.map((book, idx) => (
+                    <BookItem key={idx} book={book} />
+                ))}
+            </ul>
+        </div>
     )
 }
 

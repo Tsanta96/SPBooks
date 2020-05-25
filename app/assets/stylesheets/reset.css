@@ -73,7 +73,6 @@ html {
 }
 
 body {
-    background-image: linear-gradient(black, rgb(0, 0, 255));
     background-attachment: fixed;
 }
 
