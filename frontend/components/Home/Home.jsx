@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import BookItem from '../BookItem/BookItem';
 import BookList from '../BookList/BookList';
 import Filters from '../Filters/Filters';
-// import downArrow from '../../../app/assets/images/down-arrow.png';
 
 const Home = ({ stateBooks, fetchBooks }) => {
     const [titleSortOption, setTitleSortOption] = useState("-");
@@ -14,10 +12,28 @@ const Home = ({ stateBooks, fetchBooks }) => {
     let filterButtonText = "Show Filters";
     let filterImgSource = "https://img.icons8.com/material-rounded/30/000000/chevron-down.png"
     const originalBookList = stateBooks.length !== 0 ? stateBooks : null;
-    console.log("Home Render");
 
     useEffect(() => {
         fetchBooks();
+        window.addEventListener("scroll", () => {
+            let backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 2000) {
+                backToTop.classList.add("active")
+            } else {
+                backToTop.classList.remove("active");
+            }
+        })
+
+        return () => {
+            window.removeEventListener("scroll", () => {
+            let backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 2000) {
+                backToTop.classList.add("active")
+            } else {
+                backToTop.classList.remove("active");
+            }
+        })
+        }
     }, []);
 
     useEffect(() => {
@@ -48,6 +64,10 @@ const Home = ({ stateBooks, fetchBooks }) => {
         filtersDisplay = null;
     }
 
+    function backToTop() {
+        window.scrollTo(0,0);
+    }
+
     return (
         <div className="top-container">
             <div className="page-header-and-filters-container">
@@ -60,15 +80,13 @@ const Home = ({ stateBooks, fetchBooks }) => {
                         {filterButtonText}
                         <img src={filterImgSource} />
                     </div>
-                    {/* <button 
-                        onClick={showFilters ? () => setShowFilters(false) : () => setShowFilters(true)}>
-                            {filterButtonText}
-                    </button> */}
                     {filtersDisplay}
                 </div>
-
             </div>
             <BookList books={books} />
+            <div className="back-to-top" onClick={backToTop}>
+                <img src="https://img.icons8.com/material-rounded/80/000000/chevron-up.png" />
+            </div>
         </div>
     )
 }
