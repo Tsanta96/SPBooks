@@ -12,7 +12,6 @@ import { titleAscSort,
 
 const Filters = (props) => {
     const [searchStr, setSearchStr] = useState('');
-    // console.log("Here => ", props);
 
     const { titleSortOption, 
             authorSortOption,
@@ -104,8 +103,8 @@ const Filters = (props) => {
         })
     }
 
-    function handleSearch(e) {
-        e.preventDefault();
+    // function handleSearch(e) {
+        // e.preventDefault();
         // let searchResults = [];
         // for (let i = 0; i < books.length; i++) {
         //     if (books[i].title.includes(searchStr)) {
@@ -113,8 +112,8 @@ const Filters = (props) => {
         //     }
         // }
         // setBooks(searchResults);
-        console.log(`search for ${searchStr}`);
-    }
+        // console.log(`search for ${searchStr}`);
+    // }
 
     return (
         <div className="filters">
