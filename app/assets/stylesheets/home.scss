@@ -76,6 +76,9 @@
         animation-name: fadeIn;
         animation-duration: 3s;
         opacity: 1.0;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
