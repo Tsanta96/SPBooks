@@ -52,5 +52,35 @@
             }
         }
     }
+
+    .back-to-top {
+        background-color: #4da2cf;
+        opacity: 0.0;
+        color: white;
+        position: fixed;
+        padding: 3vw;
+        bottom: 15vw;
+        right: 8vw;
+        font-size: 3rem;
+        border-radius: 30px;
+
+        @media only screen and (min-device-width: 415px) {
+            font-size: 1.5rem;
+            padding: 1vw;
+            bottom: 6vw;
+            right: 2vw;
+        }
+    }
+
+    .active {
+        animation-name: fadeIn;
+        animation-duration: 3s;
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0.0;}
+    to {opacity:1.0}
 }
 
