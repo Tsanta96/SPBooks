@@ -5,13 +5,13 @@
     background-color: rgb(241, 241, 241);
     // border: 1px solid black;
     width: 74vw;
-    height: 40vw;
+    height: 50vw;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     font-family: 'Ropa Sans', sans-serif;
     @media only screen and (min-device-width: 415px) {
         height: 3vw;
-        padding: 3vw 0;
+        padding: 3vw 0 5vw 0;
     }
 
     .filter-categories {
@@ -47,15 +47,67 @@
 
     .filter-search {
         display: flex;
+        width: 70vw;
+        align-self: flex-end;
+        margin-top: 3vw;
         @media only screen and (min-device-width: 415px) {
+            width: 35vw;
             align-self: center;
             margin-top: 1vw;
         }
 
         .search-bar {
-            
+            width: 50vw;
+            height: 7vw;
+            font-size: 30px;
+            border-radius: 8px;
+            border-style: none;
+            @media only screen and (min-device-width: 415px) {
+                height: 2.3vw;
+                width: 25vw;
+                font-size: 20px;
+                align-self: center;
+                margin-top: 1vw;
+            }
         }
 
+        .search-button {
+            font-size: 30px;
+            border: 1px solid black;
+            padding: 1.5vw;
+            margin-left: 1vw;
+            border-radius: 15px;
+            background-color: #4da2cf;
+            @media only screen and (min-device-width: 415px) {
+                font-size: 15px;
+                padding: 0.5vw;
+                border-radius: 10px;
+                align-self: center;
+                margin-top: 1vw;
+            }
+        }
+
+    }
+
+    .clear-button {
+        position: absolute;
+        right: 8%;
+        bottom: 70%;
+        height: 8vw;
+        width: 15vw;
+        font-size: 25px;
+        border: 1px solid black;
+        border-radius: 15px;
+        background-color: #283a66;
+        color: white;
+        @media only screen and (min-device-width: 415px) {
+            height: 2.5vw;
+            width: 8vw;
+            font-size: 20px;
+            position: absolute;
+            right: 5vw;
+            bottom: 1.2vw;
+        }
     }
 
 

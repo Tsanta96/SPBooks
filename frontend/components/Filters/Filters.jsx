@@ -104,15 +104,19 @@ const Filters = (props) => {
     function searchBooks(e) {
         e.preventDefault();
         let searchedBooks = [];
+        console.log("1 => ", searchedBooks)
+        console.log("here => ", stateBooks)
         for (let i = 0; i < stateBooks.length; i++) {
-            if (stateBooks[i].title.toLowerCase().includes(searchStr) ||
+            if (stateBooks[i].title !== null && stateBooks[i].title.toLowerCase().includes(searchStr) ||
             stateBooks[i].author !== null && stateBooks[i].author.toLowerCase().includes(searchStr) ||
             stateBooks[i].year !== null && stateBooks[i].year.includes(searchStr) ||
             stateBooks[i].isbn !== null && stateBooks[i].isbn.includes(searchStr)) {
-                searchedBooks.push(books[i]);
+                searchedBooks.push(stateBooks[i]);
+                console.log(searchedBooks);
             }
         }
-
+        console.log("searchStr => ", searchStr);
+        console.log("Searched Books => ", searchedBooks);
         setBooks(searchedBooks);
         setSearchStr('');
     }
@@ -162,10 +166,10 @@ const Filters = (props) => {
                         value={searchStr}
                         onChange={(e) => setSearchStr(e.currentTarget.value)}
                     />
-                    <button type="submit">Search</button>
+                    <button className="search-button" type="submit">Search</button>
                 </form>
-                <button onClick={handleClear}>Clear Search</button>
             </div>
+            <button className="clear-button" onClick={handleClear}>Clear</button>
         </div>
     )
 }
