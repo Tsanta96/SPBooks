@@ -11,7 +11,7 @@
     font-family: 'Ropa Sans', sans-serif;
     @media only screen and (min-device-width: 415px) {
         height: 3vw;
-        padding: 2vw 0;
+        padding: 3vw 0;
     }
 
     .filter-categories {
@@ -21,6 +21,7 @@
         @media only screen and (min-device-width: 415px) {
             flex-direction: row;
             justify-content: space-around;
+            margin-top: -0.5vw;
         }
     }
 
@@ -43,4 +44,15 @@
             }
         }
     }
+
+    .filter-search {
+        display: flex;
+        @media only screen and (min-device-width: 415px) {
+            align-self: center;
+            margin-top: 1vw;
+        }
+
+    }
+
+
 }
