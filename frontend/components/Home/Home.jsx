@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import BookList from '../BookList/BookList';
-import Filters from '../Filters/Filters';
+import Filters from '../Filters/Filters_container';
 
 const Home = ({ stateBooks, fetchBooks }) => {
     const [titleSortOption, setTitleSortOption] = useState("-");

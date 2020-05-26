@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { titleAscSort, 
          titleDscSort,
          authorAscSort,
@@ -11,7 +11,8 @@ import { titleAscSort,
 } from "../../util/sorting_algos";
 
 const Filters = (props) => {
-
+    const [searchStr, setSearchStr] = useState('');
+    
     const { titleSortOption, 
             authorSortOption,
             yearSortOption,
@@ -22,6 +23,7 @@ const Filters = (props) => {
             setIsbnSortOption,
             books,
             setBooks,
+            stateBooks
     } = props
 
     let sorted;
@@ -32,49 +34,50 @@ const Filters = (props) => {
             case "titleAsc":
                 setTitleSortOption(e.target.value);
                 resetOtherState("Title");
-                sorted = titleAscSort(books);
+                //passing in stateBooks (books list from redux state) to make sure it is the full list everytime
+                sorted = titleAscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "titleDsc":
                 setTitleSortOption(e.target.value);
                 resetOtherState("Title");
-                sorted = titleDscSort(books);
+                sorted = titleDscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "AuthorAsc":
                 setAuthorSortOption(e.target.value);
                 resetOtherState("Author");
-                sorted = authorAscSort(books);
+                sorted = authorAscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "AuthorDsc":
                 setAuthorSortOption(e.target.value);
                 resetOtherState("Author");
-                sorted = authorDscSort(books);
+                sorted = authorDscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "YearAsc":
                 setYearSortOption(e.target.value);
                 resetOtherState("Year");
-                sorted = yearAscSort(books);
+                sorted = yearAscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "YearDsc":
                 setYearSortOption(e.target.value);
                 resetOtherState("Year");
-                sorted = yearDscSort(books);
+                sorted = yearDscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "IsbnAsc":
                 setIsbnSortOption(e.target.value);
                 resetOtherState("Isbn");
-                sorted = isbnAscSort(books);
+                sorted = isbnAscSort(stateBooks);
                 setBooks(sorted);
                 break;
             case "IsbnDsc":
                 setIsbnSortOption(e.target.value);
                 resetOtherState("Isbn");
-                sorted = isbnDscSort(books);
+                sorted = isbnDscSort(stateBooks);
                 setBooks(sorted);
                 break;
             default: 
@@ -96,6 +99,30 @@ const Filters = (props) => {
                 selectStateUpdateFunctions[funcName]("-");
             }
         })
+    }
+
+    function searchBooks(e) {
+        e.preventDefault();
+        let searchedBooks = [];
+        console.log("1 => ", searchedBooks)
+        console.log("here => ", stateBooks)
+        for (let i = 0; i < stateBooks.length; i++) {
+            if (stateBooks[i].title !== null && stateBooks[i].title.toLowerCase().includes(searchStr) ||
+            stateBooks[i].author !== null && stateBooks[i].author.toLowerCase().includes(searchStr) ||
+            stateBooks[i].year !== null && stateBooks[i].year.includes(searchStr) ||
+            stateBooks[i].isbn !== null && stateBooks[i].isbn.includes(searchStr)) {
+                searchedBooks.push(stateBooks[i]);
+                console.log(searchedBooks);
+            }
+        }
+        console.log("searchStr => ", searchStr);
+        console.log("Searched Books => ", searchedBooks);
+        setBooks(searchedBooks);
+        setSearchStr('');
+    }
+
+    function handleClear() {
+        setBooks(stateBooks);
     }
 
     return (
@@ -130,6 +157,19 @@ const Filters = (props) => {
                     </select>
                 </div>
             </div>
+            <div className="filter-search">
+                <form onSubmit={searchBooks}>
+                    <input 
+                        type="text"
+                        className="search-bar"
+                        placeholder="Name, Author, Year, Isbn"
+                        value={searchStr}
+                        onChange={(e) => setSearchStr(e.currentTarget.value)}
+                    />
+                    <button className="search-button" type="submit">Search</button>
+                </form>
+            </div>
+            <button className="clear-button" onClick={handleClear}>Clear</button>
         </div>
     )
 }
