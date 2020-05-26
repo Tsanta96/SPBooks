@@ -1,24 +1,12 @@
-# README
+# Service Pros Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a responsive web application that pulls in and displays data about famous books. 
+Users are able to filter the books by Title, Author, Year, and Isbn. Built with responsive 
+design so it is intuitive for both mobile and web platforms.
 
-Things you may want to cover:
+## Technologies
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby On Rails
+* React
+* Redux
+* CSS/SCSS
