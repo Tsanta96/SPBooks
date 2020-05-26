@@ -1,5 +1,5 @@
 import React from "react";
-import { Provider } from "react-redux";
+import { Provider } from "react-redux"; //Provides access to the store to all components wrapped inside the Provider
 
 import App from "./App";
 

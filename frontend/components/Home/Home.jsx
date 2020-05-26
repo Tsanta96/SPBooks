@@ -11,10 +11,10 @@ const Home = ({ stateBooks, fetchBooks }) => {
     const [showFilters, setShowFilters] = useState(false);
     let filterButtonText = "Show Filters";
     let filterImgSource = "https://img.icons8.com/material-rounded/30/000000/chevron-down.png"
-    const originalBookList = stateBooks.length !== 0 ? stateBooks : null;
 
     useEffect(() => {
         fetchBooks();
+        //Display floating "Back To Top" Button if vertically scrolled past 2000 pixels
         window.addEventListener("scroll", () => {
             let backToTop = document.querySelector('.back-to-top');
             if (window.pageYOffset > 2000) {
@@ -24,6 +24,7 @@ const Home = ({ stateBooks, fetchBooks }) => {
             }
         })
 
+        //Clean up event listeners 
         return () => {
             window.removeEventListener("scroll", () => {
             let backToTop = document.querySelector('.back-to-top');
@@ -36,6 +37,7 @@ const Home = ({ stateBooks, fetchBooks }) => {
         }
     }, []);
 
+    //set local "books" state to state pulled in from Redux
     useEffect(() => {
         if (stateBooks.length !== 0) {
             setBooks(stateBooks);
@@ -43,7 +45,7 @@ const Home = ({ stateBooks, fetchBooks }) => {
     }, [stateBooks]);
 
     let filtersDisplay = null;
-
+    //conditionally render dropdown 
     if (showFilters === true) {
         filtersDisplay = <Filters
             titleSortOption={titleSortOption}
@@ -56,7 +58,6 @@ const Home = ({ stateBooks, fetchBooks }) => {
             setIsbnSortOption={setIsbnSortOption}
             books={books}
             setBooks={setBooks}
-            ogBookList={originalBookList} //To reset all books after search
         />
         filterButtonText = "Close Filters";
         filterImgSource = "https://img.icons8.com/material-rounded/30/000000/chevron-up.png";
