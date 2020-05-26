@@ -23,7 +23,8 @@ const Filters = (props) => {
             setIsbnSortOption,
             books,
             setBooks,
-            stateBooks
+            stateBooks,
+            setShowFilters
     } = props
 
     let sorted;
@@ -107,10 +108,10 @@ const Filters = (props) => {
         console.log("1 => ", searchedBooks)
         console.log("here => ", stateBooks)
         for (let i = 0; i < stateBooks.length; i++) {
-            if (stateBooks[i].title !== null && stateBooks[i].title.toLowerCase().includes(searchStr) ||
-            stateBooks[i].author !== null && stateBooks[i].author.toLowerCase().includes(searchStr) ||
-            stateBooks[i].year !== null && stateBooks[i].year.includes(searchStr) ||
-            stateBooks[i].isbn !== null && stateBooks[i].isbn.includes(searchStr)) {
+            if (stateBooks[i].title !== null && stateBooks[i].title.toLowerCase().includes(searchStr.toLowerCase()) ||
+            stateBooks[i].author !== null && stateBooks[i].author.toLowerCase().includes(searchStr.toLowerCase()) ||
+            stateBooks[i].year !== null && stateBooks[i].year.includes(searchStr.toLowerCase()) ||
+            stateBooks[i].isbn !== null && stateBooks[i].isbn.includes(searchStr.toLowerCase())) {
                 searchedBooks.push(stateBooks[i]);
                 console.log(searchedBooks);
             }
@@ -119,10 +120,21 @@ const Filters = (props) => {
         console.log("Searched Books => ", searchedBooks);
         setBooks(searchedBooks);
         setSearchStr('');
+        setShowFilters(false);
+        setTitleSortOption('-');
+        setAuthorSortOption('-');
+        setYearSortOption('-');
+        setIsbnSortOption('-');
     }
 
     function handleClear() {
+        console.log(stateBooks);
         setBooks(stateBooks);
+        setShowFilters(false);
+        setTitleSortOption('-');
+        setAuthorSortOption('-');
+        setYearSortOption('-');
+        setIsbnSortOption('-');
     }
 
     return (

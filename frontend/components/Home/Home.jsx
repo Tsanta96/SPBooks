@@ -58,6 +58,7 @@ const Home = ({ stateBooks, fetchBooks }) => {
             setIsbnSortOption={setIsbnSortOption}
             books={books}
             setBooks={setBooks}
+            setShowFilters={setShowFilters}
         />
         filterButtonText = "Close Filters";
         filterImgSource = "https://img.icons8.com/material-rounded/30/000000/chevron-up.png";
