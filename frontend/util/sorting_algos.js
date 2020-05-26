@@ -1,11 +1,4 @@
-// titleAscSort
-// titleDscSort
-// authorAscSort
-// authorDscSort
-// yearAscSort
-// yearDscSort
-// IsbnAscSort
-// IsbnDscSort
+//All sorting algos based on user input
 
 export const titleAscSort = (books) => {
     return books.sort((a,b) => (a.title > b.title) ? 1 : -1);

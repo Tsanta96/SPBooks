@@ -11,7 +11,6 @@ import { titleAscSort,
 } from "../../util/sorting_algos";
 
 const Filters = (props) => {
-    const [searchStr, setSearchStr] = useState('');
 
     const { titleSortOption, 
             authorSortOption,
@@ -23,17 +22,12 @@ const Filters = (props) => {
             setIsbnSortOption,
             books,
             setBooks,
-            // ogBookList
     } = props
 
-    // let copyBooks = [...books] //Copying books Arr to not alter og order
     let sorted;
 
+    //Call desired sort function based on user Input
     function handleSort(e) {
-        // if (books.length !== ogBookList.length) {
-        //     setBooks(ogBookList);
-        // }
-        // setBooks(ogBookList);
         switch(e.target.value) {
             case "titleAsc":
                 setTitleSortOption(e.target.value);
@@ -88,6 +82,7 @@ const Filters = (props) => {
         }
     }
 
+    //Reset the select input values when interacting with another input
     function resetOtherState(selectedState) {
         const selectStateUpdateFunctions = {
             "setTitleSortOption" : setTitleSortOption, 
@@ -102,18 +97,6 @@ const Filters = (props) => {
             }
         })
     }
-
-    // function handleSearch(e) {
-        // e.preventDefault();
-        // let searchResults = [];
-        // for (let i = 0; i < books.length; i++) {
-        //     if (books[i].title.includes(searchStr)) {
-        //         searchResults.push(books[i]);
-        //     }
-        // }
-        // setBooks(searchResults);
-        // console.log(`search for ${searchStr}`);
-    // }
 
     return (
         <div className="filters">
@@ -147,19 +130,6 @@ const Filters = (props) => {
                     </select>
                 </div>
             </div>
-            {/* <div>
-                <form onSubmit={handleSearch}>
-                    <label>Search: 
-                        <input 
-                            type="text"
-                            placeholder="Search for a famous book"
-                            value={searchStr}
-                            onChange={(e) => setSearchStr(e.currentTarget.value)}
-                        />
-                        <input type="submit" value="Search"></input>
-                    </label>
-                </form>
-            </div> */}
         </div>
     )
 }
