@@ -1,7 +1,7 @@
 //All sorting algos based on user input
 
 export const titleAscSort = (books) => {
-    let newBooks = books.slice();
+    let newBooks = books.slice(); //creating a new copy of books to keep stateBooks from mutating
     return newBooks.sort((a,b) => (a.title > b.title) ? 1 : -1);
 }   
 
