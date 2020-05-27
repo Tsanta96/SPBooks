@@ -17,23 +17,25 @@ const Home = ({ stateBooks, fetchBooks }) => {
         //Display floating "Back To Top" Button if vertically scrolled past 2000 pixels
         window.addEventListener("scroll", () => {
             let backToTop = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 2000) {
-                backToTop.classList.add("active")
-            } else {
-                backToTop.classList.remove("active");
+            if (backToTop !== null) {
+                if (window.pageYOffset > 2000) {
+                    backToTop.classList.add("active")
+                } else {
+                    backToTop.classList.remove("active");
+                }
             }
         })
 
-        //Clean up event listeners 
+        // Clean up event listeners 
         return () => {
             window.removeEventListener("scroll", () => {
-            let backToTop = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 2000) {
-                backToTop.classList.add("active")
-            } else {
-                backToTop.classList.remove("active");
-            }
-        })
+                let backToTop = document.querySelector('.back-to-top');
+                if (window.pageYOffset > 2000) {
+                    backToTop.classList.add("active")
+                } else {
+                    backToTop.classList.remove("active");
+                }
+            })
         }
     }, []);
 
