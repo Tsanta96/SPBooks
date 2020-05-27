@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { fetchBook } from '../../util/books';
 
 const BookDisplay = (props) => {
+    const [bookImg, setBookImg] = useState('');
     const { title, author, year, isbn } = props.location.state;
     
     useEffect(() => {
@@ -11,9 +12,11 @@ const BookDisplay = (props) => {
 
     function getBookImage() {
         if (isbn !== null) {
-            // fetchBook(isbn).then(res => console.log(res));
-            console.log("In GetBookImage()");
-            fetchBook(isbn).then(res => console.log(res))
+            
+            //Send request to backend to call scraper function
+            fetchBook(isbn)
+                .then((res) => setBookImg(res.data))
+                .catch((err) => console.log(err));
         } else {
             return null
         }
@@ -26,6 +29,7 @@ const BookDisplay = (props) => {
     return (
         <div>
             <div onClick={backToHome}>BACK</div>
+            <img src={bookImg}></img>
             <h1>{title}</h1>
             <h3>{author}</h3>
             <p>{year}</p>
