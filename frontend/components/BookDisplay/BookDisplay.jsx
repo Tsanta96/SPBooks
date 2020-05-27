@@ -14,7 +14,10 @@ const BookDisplay = (props) => {
         if (isbn !== null) {
             //Send request to backend to call scraper function from books controller
             fetchBook(isbn)
-                .then((res) => setBookImg(res.data))
+                .then((res) => {
+                    console.log(res.data)
+                    setBookImg(res.data)
+                })
                 .catch((err) => console.log(err));
         } else {
             return null

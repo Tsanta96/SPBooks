@@ -13,20 +13,31 @@
         width: 70vw;
     
         .back-to-home-btn {
+            position: absolute;
+            bottom: 11vw;
+            right: 15vw;
+            font-size: 3.5rem;
+            padding: 2vw;
+            border-radius: 18px;
+            background-color: #327fa8;
+            color: white;
 
+            font-family: 'Ropa Sans', sans-serif;
             &:hover {
                 cursor: pointer;
                 background-color: #327fa8;
             }
-            font-family: 'Ropa Sans', sans-serif;
+
             @media only screen and (min-device-width: 415px) {
-                    border-radius: 10px;
-                    width: 7vw;
-                    text-align: center;
-                    margin-top: 2vw;
-                    padding: 0.8em;
-                    background-color: #327fa8;
-                    color: white;
+                font-size: 16px;
+                position: relative;
+                bottom: 0;
+                right: 0;
+                border-radius: 10px;
+                width: 7vw;
+                text-align: center;
+                margin-top: 2vw;
+                padding: 0.8em;
             }
         }
 
@@ -41,13 +52,24 @@
             }
 
             .book-display-image {
-                @media only screen and (min-device-width: 415px) {}
+                height: 40vh;
+                margin-top: 2vw;
+                @media only screen and (min-device-width: 415px) {
+                    margin-top: 0;
+                    height: auto;
+                }
             }
 
             .book-display-info {
-                margin-left: 5vw;
+
+                @media only screen and (min-device-width: 415px) {
+                    margin-left: 5vw;
+                }
     
                 .book-title {
+                    font-size: 7rem;
+                    text-align: center;
+                    margin-top: 4vw;
                     @media only screen and (min-device-width: 415px) {
                         font-size: 3.5rem;
                         font-family:'Ropa Sans',sans-serif;
@@ -57,6 +79,9 @@
                 }
     
                 .book-author {
+                    font-size: 4rem;
+                    text-align: center;
+                    margin-top: 1vw;
                     @media only screen and (min-device-width: 415px) {
                         font-size: 2rem;
                         font-family:'Ropa Sans',sans-serif;
@@ -65,6 +90,9 @@
                 }
     
                 .book-year {
+                    font-size: 3.5rem;
+                    text-align: center;
+                    margin-top: 1vw;
                     @media only screen and (min-device-width: 415px) {
                         font-size: 1.5rem;
                         font-family:'Ropa Sans',sans-serif;
@@ -73,6 +101,9 @@
                 }
 
                 .book-isbn {
+                    font-size: 2.5rem;
+                    text-align: center;
+                    margin-top: 6vw;
                     @media only screen and (min-device-width: 415px) {
                         font-size: 1rem;
                         font-family: 'Ropa Sans', sans-serif;
