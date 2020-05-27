@@ -12,8 +12,7 @@ const BookDisplay = (props) => {
 
     function getBookImage() {
         if (isbn !== null) {
-            
-            //Send request to backend to call scraper function
+            //Send request to backend to call scraper function from books controller
             fetchBook(isbn)
                 .then((res) => setBookImg(res.data))
                 .catch((err) => console.log(err));
@@ -27,13 +26,21 @@ const BookDisplay = (props) => {
     }
 
     return (
-        <div>
-            <div onClick={backToHome}>BACK</div>
-            <img src={bookImg}></img>
-            <h1>{title}</h1>
-            <h3>{author}</h3>
-            <p>{year}</p>
-            Hello from Book Display!
+        <div className="book-display-container">
+            <h1 className="page-header">Service Pros Library</h1>
+            <div className="back-btn-image-info">
+                <div className="back-to-home-btn" onClick={backToHome}>{"<"} BACK</div>
+                <div className="image-and-info">
+                    <img className="book-display-image" src={bookImg}></img>
+                    <div className="book-display-info">
+                        <h1 className="book-title">{title}</h1>
+                        <h3 className="book-author">{author}</h3>
+                        <p className="book-year">{year}</p>
+                        <p className="book-isbn">Isbn: {isbn}</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     )
 }

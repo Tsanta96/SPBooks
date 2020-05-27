@@ -1,0 +1,14 @@
+.page-header-styles {
+    background-color: white;
+    width: 70vw;
+    font-size: 5rem;
+    font-family: 'Russo One', sans-serif;
+    padding: 2vw;
+    text-align: center;
+    color: #283a66;
+    border-bottom: 3px solid #283a66;
+
+    @media only screen and (min-device-width: 415px) {
+        font-size: 3rem;
+    }
+}
