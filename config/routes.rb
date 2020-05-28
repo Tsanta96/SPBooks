@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
-    resources :books, only: [:index]
+    get '/books/:isbn' => 'books#get_image'
   end
   
 end

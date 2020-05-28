@@ -1,8 +1,25 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const BookItem = ( {book} ) => {
+const BookItem = (props) => {
+    const { book } = props;
+
+    function sendToBookDisplay() {
+        console.log("Props => ", props);
+        props.setBookState(book);
+        props.history.push({
+            pathname: `/books/${book.isbn}`,
+            state: {
+                isbn: book.isbn
+            }
+        });
+    }
+
     return (
-        <div className="book-item">
+        <div 
+            className="book-item"
+            onClick={sendToBookDisplay}
+        >
             <div className="book-item-left-side">
                 <h1 className="book-title">{book.title}</h1>
                 <p className="book-author">{book.author}</p>
@@ -15,4 +32,4 @@ const BookItem = ( {book} ) => {
     )
 }
 
-export default BookItem;
+export default withRouter(BookItem);
