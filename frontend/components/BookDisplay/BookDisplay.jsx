@@ -10,6 +10,7 @@ const BookDisplay = (props) => {
     const isbn = props.stateBook.isbn;
 
     useEffect(() => {
+        console.log("here? =>", props.stateBook.title);
         getBookImage();
     }, [])
 
@@ -47,7 +48,7 @@ const BookDisplay = (props) => {
                     {/* <img className="book-display-image" src={bookImg}></img> */}
                     {dispImage}
                     <div className="book-display-info">
-                        <h1 className="book-title">{title}</h1>
+                        <h1 className="book-title">{title ? title : "Go Back to Home Page"}</h1>
                         <h3 className="book-author">{author}</h3>
                         <p className="book-year">{year}</p>
                         <p className="book-isbn">{isbn ? `Isbn: ${isbn}` : ''}</p>
