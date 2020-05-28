@@ -1,7 +1,6 @@
 @import './shared_styles.scss';
 
 .top-container {
-    // background-color: blue;
     width: vw(100);
     height: vh(100);
     display: flex;
@@ -32,13 +31,12 @@
                 font-size: 3rem;
                 text-align: center;
                 font-family: 'Ropa Sans', sans-serif;
-                @media only screen and (min-device-width: 415px) {
-                    font-size: 1.5rem;
-                }
-
                 &:hover {
                     background-color: rgb(69, 163, 194);
                     cursor: pointer;
+                }
+                @media only screen and (min-device-width: 415px) {
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -54,7 +52,6 @@
         right: 8vw;
         font-size: 3rem;
         border-radius: 30px;
-
         @media only screen and (min-device-width: 415px) {
             font-size: 1.5rem;
             padding: 1vw;

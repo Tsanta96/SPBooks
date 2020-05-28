@@ -4,10 +4,7 @@ import { fetchBook } from '../../util/books';
 
 const BookDisplay = (props) => {
     const [bookImg, setBookImg] = useState('');
-    const title = props.stateBook.title;
-    const author = props.stateBook.author;
-    const year = props.stateBook.year;
-    const isbn = props.stateBook.isbn;
+    const { title, author, year, isbn } = props.stateBook;
 
     useEffect(() => {
         getBookImage();
@@ -15,12 +12,9 @@ const BookDisplay = (props) => {
 
     function getBookImage() {
         if (isbn !== null) {
-            //Send request to backend to call scraper function from books controller
+            //Send request to backend to call scraper function in books controller
             fetchBook(isbn)
-                .then((res) => {
-                    console.log(res.data)
-                    setBookImg(res.data)
-                })
+                .then((res) => setBookImg(res.data))
                 .catch((err) => console.log(err));
         } else {
             return null
@@ -35,6 +29,7 @@ const BookDisplay = (props) => {
     if (isbn === null) {
         dispImage = <div className="no-isbn">N/A</div>
     } else {
+        //display loading icon if the image is falsy
         dispImage = <img className="book-display-image" src={bookImg ? bookImg : 'https://image.flaticon.com/icons/svg/55/55217.svg'}></img>
     }
 

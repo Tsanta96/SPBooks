@@ -3,12 +3,9 @@ import Home from './Home';
  
 import { fetchBooks } from '../../actions/book_actions';
 
-const mapStateToProps = ( {books} ) => {
-    let booksArr = Object.values(books);
-    return {
-        stateBooks: booksArr
-    }
-}
+const mapStateToProps = ( {books} ) => ({
+    stateBooks: Object.values(books)
+})
 
 const mapDispatchToProps = dispatch => ({
     fetchBooks: () => dispatch(fetchBooks())

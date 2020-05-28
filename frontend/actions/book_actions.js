@@ -8,12 +8,10 @@ const receiveAllBooks = books => ({
     books
 })
 
-const receiveBook = book => {
-    return {
-        type: RECEIVE_BOOK,
-        book
-    }
-}
+const receiveBook = book => ({
+    type: RECEIVE_BOOK,
+    book
+})
 
 export const fetchBooks = () => dispatch => (
     bookUtils.fetchBooks()
