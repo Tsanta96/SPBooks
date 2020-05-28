@@ -12,12 +12,12 @@ class ImageScraper
 
     def parse_url(url)
         unparsed_page = HTTParty.get(url)
-        Nokogiri::HTML(unparsed_page)
+        Nokogiri::HTML(unparsed_page) #Where the magic happens
     end
 
     def scrape 
         parsed_page = parse_url(@url)
-        image = parsed_page.css('div.image').children[1].attributes.values[0].value
+        image = parsed_page.css('div.image').children[1].attributes.values[0].value #grabbing the src from the node on the page
         image
     end 
 end

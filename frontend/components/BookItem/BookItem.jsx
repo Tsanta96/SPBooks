@@ -5,12 +5,11 @@ const BookItem = (props) => {
     const { book } = props;
 
     function sendToBookDisplay() {
-        console.log("Props => ", props);
         props.setBookState(book);
         props.history.push({
             pathname: `/books/${book.isbn}`,
             state: {
-                isbn: book.isbn
+                isbn: book.isbn //pass isbn over nav params so BookDisplay receives it quicker than if it were to pull from redux state
             }
         });
     }

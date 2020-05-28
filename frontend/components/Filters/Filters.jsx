@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { titleAscSort, 
          titleDscSort,
          authorAscSort,
@@ -21,7 +21,6 @@ const Filters = (props) => {
             setAuthorSortOption,
             setYearSortOption,
             setIsbnSortOption,
-            books,
             setBooks,
             stateBooks,
             setShowFilters
@@ -35,8 +34,7 @@ const Filters = (props) => {
             case "titleAsc":
                 setTitleSortOption(e.target.value);
                 resetOtherState("Title");
-                //passing in stateBooks (books list from redux state) to make sure it is the full list everytime
-                sorted = titleAscSort(stateBooks);
+                sorted = titleAscSort(stateBooks); //passing in stateBooks (books list from redux state) to make sure it is the full list everytime
                 setBooks(sorted);
                 break;
             case "titleDsc":
@@ -105,19 +103,15 @@ const Filters = (props) => {
     function searchBooks(e) {
         e.preventDefault();
         let searchedBooks = [];
-        console.log("1 => ", searchedBooks)
-        console.log("here => ", stateBooks)
-        for (let i = 0; i < stateBooks.length; i++) {
+        //lowercase both book title and searchStr to match chars
+        for (let i = 0; i < stateBooks.length; i++) { 
             if (stateBooks[i].title !== null && stateBooks[i].title.toLowerCase().includes(searchStr.toLowerCase()) ||
             stateBooks[i].author !== null && stateBooks[i].author.toLowerCase().includes(searchStr.toLowerCase()) ||
             stateBooks[i].year !== null && stateBooks[i].year.includes(searchStr.toLowerCase()) ||
             stateBooks[i].isbn !== null && stateBooks[i].isbn.includes(searchStr.toLowerCase())) {
                 searchedBooks.push(stateBooks[i]);
-                console.log(searchedBooks);
             }
         }
-        console.log("searchStr => ", searchStr);
-        console.log("Searched Books => ", searchedBooks);
         setBooks(searchedBooks);
         setSearchStr('');
         setShowFilters(false);
@@ -128,7 +122,6 @@ const Filters = (props) => {
     }
 
     function handleClear() {
-        console.log(stateBooks);
         setBooks(stateBooks);
         setShowFilters(false);
         setTitleSortOption('-');
