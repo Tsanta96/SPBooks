@@ -9,7 +9,6 @@ const receiveAllBooks = books => ({
 })
 
 const receiveBook = book => {
-    console.log("hererererere");
     return {
         type: RECEIVE_BOOK,
         book

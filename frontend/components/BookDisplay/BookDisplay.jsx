@@ -10,7 +10,6 @@ const BookDisplay = (props) => {
     const isbn = props.stateBook.isbn;
 
     useEffect(() => {
-        console.log("here? =>", props.stateBook.title);
         getBookImage();
     }, [])
 
@@ -45,7 +44,6 @@ const BookDisplay = (props) => {
             <div className="back-btn-image-info">
                 <div className="back-to-home-btn" onClick={backToHome}>{"<"} BACK</div>
                 <div className="image-and-info">
-                    {/* <img className="book-display-image" src={bookImg}></img> */}
                     {dispImage}
                     <div className="book-display-info">
                         <h1 className="book-title">{title ? title : "Go Back to Home Page"}</h1>
