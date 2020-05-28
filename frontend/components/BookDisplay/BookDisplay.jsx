@@ -4,8 +4,11 @@ import { fetchBook } from '../../util/books';
 
 const BookDisplay = (props) => {
     const [bookImg, setBookImg] = useState('');
-    const { title, author, year, isbn } = props.location.state;
-    
+    const title = props.stateBook.title;
+    const author = props.stateBook.author;
+    const year = props.stateBook.year;
+    const isbn = props.stateBook.isbn;
+
     useEffect(() => {
         getBookImage();
     }, [])
@@ -28,18 +31,26 @@ const BookDisplay = (props) => {
         props.history.push(`/`);
     }
 
+    let dispImage;
+    if (isbn === null) {
+        dispImage = <div className="no-isbn">N/A</div>
+    } else {
+        dispImage = <img className="book-display-image" src={bookImg}></img>
+    }
+
     return (
         <div className="book-display-container">
             <h1 className="page-header">Service Pros Library</h1>
             <div className="back-btn-image-info">
                 <div className="back-to-home-btn" onClick={backToHome}>{"<"} BACK</div>
                 <div className="image-and-info">
-                    <img className="book-display-image" src={bookImg}></img>
+                    {/* <img className="book-display-image" src={bookImg}></img> */}
+                    {dispImage}
                     <div className="book-display-info">
                         <h1 className="book-title">{title}</h1>
                         <h3 className="book-author">{author}</h3>
                         <p className="book-year">{year}</p>
-                        <p className="book-isbn">Isbn: {isbn}</p>
+                        <p className="book-isbn">{isbn ? `Isbn: ${isbn}` : ''}</p>
                     </div>
                 </div>
 

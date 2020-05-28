@@ -56,12 +56,24 @@
                 margin-top: 2vw;
                 @media only screen and (min-device-width: 415px) {
                     margin-top: 0;
-                    height: auto;
+                    height: 50vh;
+                }
+            }
+
+            .no-isbn {
+                margin-top: 2vw;
+                background-color: rgb(175, 175, 175);
+                text-align: center;
+                padding: 20vh 0 20vh 0;
+                font-size: 40px;
+                font-family:'Ropa Sans', sans-serif;
+                @media only screen and (min-device-width: 415px) {
+                    margin-top: 0;
+                    width: 14vw;
                 }
             }
 
             .book-display-info {
-
                 @media only screen and (min-device-width: 415px) {
                     margin-left: 5vw;
                 }

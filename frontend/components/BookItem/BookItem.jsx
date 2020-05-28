@@ -5,13 +5,11 @@ const BookItem = (props) => {
     const { book } = props;
 
     function sendToBookDisplay() {
-        console.log(props);
+        console.log("Props => ", props);
+        props.setBookState(book);
         props.history.push({
             pathname: `/books/${book.isbn}`,
             state: {
-                title: book.title ,
-                author: book.author,
-                year: book.year,
                 isbn: book.isbn
             }
         });

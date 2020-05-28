@@ -13,6 +13,7 @@ const Home = ({ stateBooks, fetchBooks }) => {
     let filterImgSource = "https://img.icons8.com/material-rounded/30/000000/chevron-down.png"
 
     useEffect(() => {
+        console.log("fetching books!!!");
         fetchBooks();
         //Display floating "Back To Top" Button if vertically scrolled past 2000 pixels
         window.addEventListener("scroll", () => {

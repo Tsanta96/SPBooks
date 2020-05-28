@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import Home from './Home/Home_container';
-import BookDisplay from './BookDisplay/BookDisplay';
+import BookDisplay from './BookDisplay/BookDisplay_container';
 
 //If there were more views, I would add routes here and wrap the top level <Root> Component in a 
 //HashRouter
