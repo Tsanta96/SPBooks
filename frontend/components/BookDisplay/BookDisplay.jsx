@@ -35,7 +35,7 @@ const BookDisplay = (props) => {
     if (isbn === null) {
         dispImage = <div className="no-isbn">N/A</div>
     } else {
-        dispImage = <img className="book-display-image" src={bookImg}></img>
+        dispImage = <img className="book-display-image" src={bookImg ? bookImg : 'https://image.flaticon.com/icons/svg/55/55217.svg'}></img>
     }
 
     return (
